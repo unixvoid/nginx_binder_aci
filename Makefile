@@ -15,21 +15,21 @@ prep_aci:
 	cp deps/manifest.json nginx-layout/manifest
 
 build_aci:	prep_aci
-	actool build nginx-layout nginx_binder.aci
-	@echo "nginx_binder.aci built"
+	actool build nginx-layout nginx-binder.aci
+	@echo "nginx-binder.aci built"
 
 build_travis_aci: prep_aci
 	wget https://github.com/appc/spec/releases/download/v0.8.7/appc-v0.8.7.tar.gz
 	tar -zxf appc-v0.8.7.tar.gz
 	# build image
-	appc-v0.8.7/actool build nginx-layout nginx_binder.aci
+	appc-v0.8.7/actool build nginx-layout nginx-binder.aci
 	rm -rf appc-v0.8.7*
-	@echo "nginx_binder.aci built"
+	@echo "nginx-binder.aci built"
 
 test:
-	$(OS_PERMS) rkt run ./nginx_binder.aci --insecure-options=image --net=host
+	$(OS_PERMS) rkt run ./nginx-binder.aci --insecure-options=image --net=host
 
 clean:
 	rm -rf nginx-layout
-	rm -f nginx_binder.aci
-	rm -f nginx_binder.aci.asc
+	rm -f nginx-binder.aci
+	rm -f nginx-binder.aci.asc

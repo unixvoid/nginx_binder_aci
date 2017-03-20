@@ -8,7 +8,7 @@ script:
   - make build_travis_aci
 
 after_success:
-  - mv nginx_binder.aci nginx_binder-latest-linux-amd64.aci
+  - mv nginx-binder.aci nginx-binder-latest-linux-amd64.aci
   # pull unixvoid gpg keys
   - curl -d sec=$BINDER_SEC -d key=unixvoid.pub https://cryo.unixvoid.com/getfile --output unixvoid.pub
   - curl -d sec=$BINDER_SEC -d key=unixvoid.sec https://cryo.unixvoid.com/getfile --output unixvoid.sec
@@ -16,5 +16,5 @@ after_success:
   - cp deps/sign.sh . && chmod +x sign.sh
   - ./sign.sh $GPG_SEC
   # upload binder aci image
-  - curl -i --form sec=$BINDER_SEC --form file=@nginx_binder-latest-linux-amd64.aci --form path=rkt/binder/nginx/ https://cryo.unixvoid.com/upload
-  - curl -i --form sec=$BINDER_SEC --form file=@nginx_binder-latest-linux-amd64.aci.asc --form path=rkt/binder/nginx/ https://cryo.unixvoid.com/upload
+  - curl -i --form sec=$BINDER_SEC --form file=@nginx-binder-latest-linux-amd64.aci --form path=rkt/binder/nginx/ https://cryo.unixvoid.com/upload
+  - curl -i --form sec=$BINDER_SEC --form file=@nginx-binder-latest-linux-amd64.aci.asc --form path=rkt/binder/nginx/ https://cryo.unixvoid.com/upload

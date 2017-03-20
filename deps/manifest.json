@@ -1,7 +1,7 @@
 {
     "acKind": "ImageManifest",
     "acVersion": "0.7.1",
-    "name": "unixvoid.com/nginx_binder",
+    "name": "unixvoid.com/nginx-binder",
     "labels": [
         {
             "name": "version",
