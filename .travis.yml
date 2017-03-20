@@ -16,5 +16,5 @@ after_success:
   - cp deps/sign.sh . && chmod +x sign.sh
   - ./sign.sh $GPG_SEC
   # upload binder aci image
-  - curl -i --form sec=$BINDER_SEC --form file=@nginx_binder-latest-linux-amd64.aci --form path=rkt/nginx_binder/ https://cryo.unixvoid.com/upload
-  - curl -i --form sec=$BINDER_SEC --form file=@nginx_binder-latest-linux-amd64.aci.asc --form path=rkt/nginx_binder/ https://cryo.unixvoid.com/upload
+  - curl -i --form sec=$BINDER_SEC --form file=@nginx_binder-latest-linux-amd64.aci --form path=rkt/binder/nginx/ https://cryo.unixvoid.com/upload
+  - curl -i --form sec=$BINDER_SEC --form file=@nginx_binder-latest-linux-amd64.aci.asc --form path=rkt/binder/nginx/ https://cryo.unixvoid.com/upload
