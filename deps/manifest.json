@@ -28,6 +28,13 @@
             "protocol": "tcp",
             "port": 8080
         }
+        ],
+        "mountPoints": [
+        {
+            "name": "data",
+            "path": "/nginx/data/bin/",
+            "readOnly": true
+        }
         ]
     },
     "annotations": [
